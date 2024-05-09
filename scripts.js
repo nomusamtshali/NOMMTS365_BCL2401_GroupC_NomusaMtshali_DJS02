@@ -26,4 +26,17 @@ form.addEventListener("submit", (event) => {
   if (dividend === '' || divider === '') {
     emptyInput();
   }
-})
+});
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const entries = new FormData(event.target);
+  const { dividend, divider } = Object.fromEntries(entries);
+  function zeroError() {
+    result.innerText = 'Division not performed. Invalid number provided. Try again'
+  };
+  if ( divider === '0') {
+    zeroError();
+    throw new Error ('Division by zero')
+  }
+});
