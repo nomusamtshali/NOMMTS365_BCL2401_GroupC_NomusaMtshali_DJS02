@@ -7,3 +7,11 @@ form.addEventListener("submit", (event) => {
   const { dividend, divider } = Object.fromEntries(entries);
   result.innerText = dividend / divider;
 });
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const entries = new FormData(event.target);
+  const { dividend, divider } = Object.fromEntries(entries);
+  const wholeNumberResult = Math.floor(dividend/divider);
+  result.innerText = wholeNumberResult;
+});
