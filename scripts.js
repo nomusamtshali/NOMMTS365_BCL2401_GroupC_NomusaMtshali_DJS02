@@ -15,3 +15,15 @@ form.addEventListener("submit", (event) => {
   const wholeNumberResult = Math.floor(dividend/divider);
   result.innerText = wholeNumberResult;
 });
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const entries = new FormData(event.target);
+  const { dividend, divider } = Object.fromEntries(entries);
+  function emptyInput() {
+    result.innerText = 'Division not performed. Both values are required in inputs. Try again'
+  }
+  if (dividend === '' || divider === '') {
+    emptyInput();
+  }
+})
