@@ -40,3 +40,16 @@ form.addEventListener("submit", (event) => {
     throw new Error ('Division by zero')
   }
 });
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const entries = new FormData(event.target);
+  const { dividend, divider } = Object.fromEntries(entries);
+  function nanError() {
+    document.body.innerHTML = 'Something critical went wrong. Please reload the page';
+    console.error(new Error('Input is not a number'));
+  }
+  if (dividend !== Number || divider !== Number) {
+    nanError();
+  }
+})
