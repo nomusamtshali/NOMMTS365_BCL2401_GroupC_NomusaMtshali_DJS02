@@ -49,7 +49,7 @@ form.addEventListener("submit", (event) => {
     document.body.innerHTML = 'Something critical went wrong. Please reload the page';
     console.error(new Error('Input is not a number'));
   }
-  if (dividend !== Number || divider !== Number) {
+  if (isNaN(dividend) || isNaN(divider)) { // compare the values of dividend and divider with the isNaN() function instead of checking if they are of number type.
     nanError();
   }
 })
